@@ -1,0 +1,104 @@
+#todo-add {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(223, 231, 228, 0);
+  transform: scale(0, 0);
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.todo-nav {
+  @extend #navigation-container;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-back {
+  flex: 1;
+  cursor: default;
+  font-weight: 700;
+  color: $custom-white;
+  font-size: 2rem;
+}
+
+.todo-delete {
+  @extend .todo-back;
+  flex: 1;
+}
+
+.todo-add-title {
+  @extend .todo-back;
+  padding: 0.8rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  flex: 5;
+}
+
+.todo-update-title {
+  @extend .todo-back;
+  padding: 0.8rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  flex: 5;
+}
+.empty {
+  flex: 1;
+}
+.todo-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.8rem 0.5rem;
+  input,
+  textarea,
+  label,
+  select,
+  option,
+  button {
+    width: 100%;
+  }
+  label {
+    margin-top: 10px;
+  }
+  button {
+    border-radius: 5px;
+    max-height: 48px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: $shaded-spruce;
+    padding: 0.8rem 0.5rem;
+    font-weight: 700;
+    color: $custom-white;
+    background-color: #003C43;
+    font-size: 1.2rem;
+  }
+}
+
+.button-wrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.spinner {
+  border: 5px solid $custom-white;
+  border-top: 5px solid $shaded-spruce;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

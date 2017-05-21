@@ -1,0 +1,16 @@
+#call-todo-add-button {
+  width: 100%;
+  button {
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: $shaded-spruce;
+    padding: 0.8rem 0.5rem;
+    font-weight: 700;
+    color: $custom-white;
+    background-color: #003C43;
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,31 @@
+@import "~normalize.css/normalize.css";
+@import "~md-date-time-picker/dist/css/mdDateTimePicker.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@import "_main.scss";
+@import "_navigation.scss";
+@import "_todolist.scss";
+@import "_todoadd.scss";
+@import "_calltodoadd.scss";
+@import "_updatetodo.scss";

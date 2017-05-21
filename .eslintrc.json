@@ -1,0 +1,51 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended"
+  ],
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "indent": 0,
+    "react/jsx-indent-props": 0,
+    "linebreak-style": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "object-curly-spacing": 0,
+    "arrow-body-style": 0,
+    "no-console": 0,
+    "max-len": 0,
+    "prefer-template": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "global-require": 0,
+    "no-constant-condition": 0,
+    "no-underscore-dangle": 0,
+    "strict": [2, "never"],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": 0,
+    "react/no-string-refs": 0,
+    "jsx-a11y/no-static-element-interactions": 1
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ]
+}

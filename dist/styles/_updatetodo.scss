@@ -1,0 +1,11 @@
+#todo-update {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  left: -4000px;
+  top: 0;
+  background-color: rgba(223, 231, 228, 1);
+  overflow: hidden;
+  transition: 0.2s;
+}
