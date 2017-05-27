@@ -1,6 +1,10 @@
 @import "~normalize.css/normalize.css";
 @import "~md-date-time-picker/dist/css/mdDateTimePicker.min.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+$shaded-spruce: #005960;
+$neutral-gray: #898E8C;
+$custom-white: #EEF3F1;
+$marina: #4F84C4;
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +25,17 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+input, select, textarea {
+  border: 2px solid $neutral-gray;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  outline: none;
+  transition: border 0.4s linear;
+  &:focus {
+    border: 2px solid $marina;
+  }
 }
 
 @import "_main.scss";
