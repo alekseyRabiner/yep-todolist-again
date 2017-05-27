@@ -26,6 +26,22 @@ const hideTodo = () => {
   const todoAddStyle = document.getElementById('todo-update').style;
   todoAddStyle.left = '-4000px';
 };
+const setTimeAlarmInput = (timealarm) => {
+  return timealarm ?
+    <div>
+      <label htmlFor="input-todo-date-update">Дата</label>
+      <input
+        id="input-todo-date-update"
+        value={`${timealarm.date}`}
+      />
+      <label htmlFor="input-todo-time-update">Время</label>
+      <input
+        id="input-todo-time-update"
+        value={`${timealarm.time}`}
+      />
+    </div> :
+    null;
+};
 
 class TodoUpdateDelete extends React.Component {
   componentDidMount() {
@@ -121,16 +137,7 @@ class TodoUpdateDelete extends React.Component {
               <option value="important">Важно</option>
               <option value="very-important">Очень важно</option>
             </select>
-            <label htmlFor="input-todo-date-update">Дата</label>
-            <input
-              id="input-todo-date-update"
-              value={`${todoDataUpdateForm.timealarm.date}`}
-            />
-            <label htmlFor="input-todo-time-update">Время</label>
-            <input
-              id="input-todo-time-update"
-              value={`${todoDataUpdateForm.timealarm.time}`}
-            />
+            {setTimeAlarmInput(todoDataUpdateForm.timealarm)}
             <div className="button-wrapper">
               {this.props.isFetchingUpdate ? <div className="spinner" /> : <button type="submit">&#10003;</button>}
             </div>
