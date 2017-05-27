@@ -40,7 +40,18 @@ const setTimeAlarmInput = (timealarm) => {
         value={`${timealarm.time}`}
       />
     </div> :
-    null;
+    <div>
+      <label htmlFor="input-todo-date-update">Дата</label>
+      <input
+        id="input-todo-date-update"
+        value=""
+      />
+      <label htmlFor="input-todo-time-update">Время</label>
+      <input
+        id="input-todo-time-update"
+        value=""
+      />
+    </div>;
 };
 
 class TodoUpdateDelete extends React.Component {
