@@ -6,6 +6,7 @@ import moment from 'moment';
 import MdDateTimePicker from 'md-date-time-picker/src/js/mdDateTimePicker';
 import { updateTodo, setDataTodoUpdateForm, hideTodoUpdate, deleteTodo } from '../actions';
 import { getFetching } from '../reducers/rootReducer';
+import { checkEmptyInput } from '../util';
 
 const timePickerConfig = {
   date: {
@@ -79,7 +80,10 @@ class TodoUpdateDelete extends React.Component {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              this.props.updateTodo(this.props.todoDataUpdateForm);
+              //if inputs empty not update todo
+              if (checkEmptyInput(this.props.todoDataUpdateForm, event)) {
+                this.props.updateTodo(this.props.todoDataUpdateForm);
+              }
             }}>
             <label htmlFor="input-todo-title-update">Название задачи</label>
             <input
@@ -88,6 +92,7 @@ class TodoUpdateDelete extends React.Component {
               id="input-todo-title-update"
               value={`${todoDataUpdateForm.title}`}
               onInput={(event) => {
+                event.target.classList.remove('has-danger');
                 todoDataUpdateForm.title = event.target.value;
                 setDataTodoUpdateForm(this.props.todoDataUpdateForm);
               }}
@@ -99,6 +104,7 @@ class TodoUpdateDelete extends React.Component {
               rows="4"
               value={`${todoDataUpdateForm.desc}`}
               onInput={(event) => {
+                event.target.classList.remove('has-danger');
                 todoDataUpdateForm.desc = event.target.value;
                 setDataTodoUpdateForm(this.props.todoDataUpdateForm);
               }}

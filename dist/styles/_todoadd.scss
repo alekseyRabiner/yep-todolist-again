@@ -45,9 +45,11 @@
   line-height: 1;
   flex: 5;
 }
+
 .empty {
   flex: 1;
 }
+
 .todo-form form {
   display: flex;
   flex-direction: column;
@@ -70,12 +72,16 @@
     outline: none;
     border: none;
     cursor: pointer;
-    background-color: $shaded-spruce;
     padding: 0.8rem 0.5rem;
     font-weight: 700;
     color: $custom-white;
     background-color: #003C43;
     font-size: 1.2rem;
+  }
+  button.disabled-button {
+    @extend button;
+    background-color: $neutral-gray;
+    cursor: not-allowed;
   }
 }
 

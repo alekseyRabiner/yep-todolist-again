@@ -14,14 +14,23 @@ const colorImportance = (importance) => {
   }
 };
 
+const lostTime = timealarm => moment().diff(`${timealarm.date} ${timealarm.time}`) > 0;
 const setBorderAlert = (timealarm) => {
   if (!timealarm) {
     return 'none';
   }
-  const current = moment().diff(`${timealarm.date} ${timealarm.time}`);
+  const current = lostTime(timealarm);
   return current > 0 ? '3px solid #B93A32' : 'none';
 };
+const setAlertTime = (timealarm) => {
 
+  if (!timealarm) {
+    return null;
+  }
+  return (<div className="todo-timealarm">
+            {lostTime(timealarm) ? 'Просрочено!' : `${timealarm.date} ${timealarm.time}`}
+         </div>);
+}
 const showTodo = () => {
   const todoAddStyle = document.getElementById('todo-update').style;
   todoAddStyle.left = '0';
@@ -57,7 +66,7 @@ const Todo = ({ todo, toggleTodo, setDataTodoUpdateForm }) => {
       <div className="todo-info">
         <div className="todo-title">{todo.title}</div>
         <div className="todo-desc">{todo.desc}</div>
-        {todo.timealarm ? <div className="todo-timealarm">{`${todo.timealarm.date} ${todo.timealarm.time}`}</div> : null}
+        {setAlertTime(todo.timealarm)}
         <div className="todo-importance" style={style}>{todo.importance}</div>
         {todo.completed ? <div className="todo-completed">{`Завершено в ${todo.completed}`}</div> : null}
       </div>

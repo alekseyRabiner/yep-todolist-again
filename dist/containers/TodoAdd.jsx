@@ -6,6 +6,7 @@ import moment from 'moment';
 import MdDateTimePicker from 'md-date-time-picker/src/js/mdDateTimePicker';
 import { addTodo, setDataTodoAddForm, hideTodoAdd } from '../actions';
 import { getFetching } from '../reducers/rootReducer';
+import { checkEmptyInput } from '../util';
 
 const timePickerConfig = {
   date: {
@@ -75,7 +76,9 @@ class TodoAdd extends React.Component {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              addTodo(todoDataAddForm);
+              if (checkEmptyInput(this.props.todoDataAddForm, event)) {
+                addTodo(todoDataAddForm);
+              }
             }} >
             <label htmlFor="input-todo-title">Название задачи</label>
             <input
@@ -84,6 +87,7 @@ class TodoAdd extends React.Component {
               id="input-todo-title"
               value={`${todoDataAddForm.title}`}
               onInput={(event) => {
+                event.target.classList.remove('has-danger');
                 todoDataAddForm.title = event.target.value;
                 setDataTodoAddForm(todoDataAddForm);
               }}
@@ -95,6 +99,7 @@ class TodoAdd extends React.Component {
               rows="4"
               value={`${todoDataAddForm.desc}`}
               onInput={(event) => {
+                event.target.classList.remove('has-danger');
                 todoDataAddForm.desc = event.target.value;
                 setDataTodoAddForm(todoDataAddForm);
               }}
